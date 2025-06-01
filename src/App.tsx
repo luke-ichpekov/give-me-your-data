@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Users from './Users';
+import Companies from './Companies';
 
 function App() {
+  const [page, setPage] = useState('');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Data freedom</h1>
+      <p>
+        We buy data from users and sell it to companies.
+      </p>
+      <button onClick={() => setPage('users')}>
+        User page
+      </button>
+      <button onClick={() => setPage('companies')}>
+        Company page
+      </button>
+      {page === 'users' && <Users />}
+      {page === 'companies' && <Companies />}
     </div>
   );
 }
