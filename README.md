@@ -44,3 +44,35 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+TO START BACKEND 
+
+
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
+2. Navigate to the backend directory:
+   ```
+   cd backend
+   ```
+3. Install the dependencies:
+   ```
+   go mod tidy
+   ```
+
+## Usage
+
+To run the application, use the following command:
+```
+go run cmd/main.go
+```
+
+The server will start on `localhost:8080` by default.
+
+
+to start FE:
+
+npm run start
