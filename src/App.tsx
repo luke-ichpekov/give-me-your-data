@@ -1,25 +1,43 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Users from './Users';
 import Companies from './Companies';
 
 function App() {
   const [page, setPage] = useState('');
+
   return (
     <div className="App">
-      <h1>Data freedom</h1>
-      <p>
-        We buy data from users and sell it to companies.
-      </p>
-      <button onClick={() => setPage('users')}>
-        User page
-      </button>
-      <button onClick={() => setPage('companies')}>
-        Company page
-      </button>
-      {page === 'users' && <Users />}
-      {page === 'companies' && <Companies />}
+      <header className="App-header">
+        <h1>Data Freedom</h1>
+        <nav>
+          <button
+            className={page === 'users' ? 'active' : ''}
+            onClick={() => setPage('users')}
+          >
+            User Page
+          </button>
+          <button
+            className={page === 'companies' ? 'active' : ''}
+            onClick={() => setPage('companies')}
+          >
+            Company Page
+          </button>
+        </nav>
+        <p className="subtitle">
+          We buy data from users and sell it to companies.
+        </p>
+      </header>
+      <main className="App-main">
+        {page === 'users' && <Users />}
+        {page === 'companies' && <Companies />}
+        {!page && (
+          <div className="welcome-card">
+            <h2>Welcome!</h2>
+            <p>Select a page above to get started.</p>
+          </div>
+        )}
+      </main>
     </div>
   );
 }
